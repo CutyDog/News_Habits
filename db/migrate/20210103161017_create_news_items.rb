@@ -3,6 +3,7 @@ class CreateNewsItems < ActiveRecord::Migration[5.0]
     create_table :news_items do |t|
       t.integer :news_site_id, null: false
       t.string :title, null: false
+      t.string :category, null: false
       t.text :description, null: false
       t.text :link, null: false
       t.datetime :published_at, null: false
@@ -12,6 +13,7 @@ class CreateNewsItems < ActiveRecord::Migration[5.0]
       t.index :news_site_id
       t.index :published_at
       t.index :link, unique: true
+      t.index :category
     end
   end
 end

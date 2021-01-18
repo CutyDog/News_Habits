@@ -1,35 +1,104 @@
-<p id="notice"><%= notice %></p>
+<div class="container p-3 text-align" style="font-style: italic; font-size: large;" id="messageswitch">
+  <p v-if="toggle">Welcome, ○○！</p>
+  <p v-else=><a href="log_in.html" class="text-dark">Please log in...</a></p>
+  <button v-on:click="toggleBtn" class="btn btn-outline-secondary">切り替え</button>
+</div>
 
-<h1>News Items</h1>
+<div class="container p-3" id="app">
+  <carousel autoplay="true" loop="true" :autoplay-timeout="5000">
+    <slide v-for="n in 8">
+      <div class="slider-inner bg-dark text-white">
+        <div class="slideTittle p-3 mb-0" style="font-weight: bold;">Slide {{n}} Tittle</div>
+        <div class="slideContent p-3">Slide {{n}} Content</div>
+      </div>
+    </slide>
+  </carousel>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>News site</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Link</th>
-      <th>Published at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container p-3">
 
-  <tbody>
-    <% @news_items.each do |news_item| %>
-      <tr>
-        <td><%= news_item.news_site_id %></td>
-        <td><%= news_item.title %></td>
-        <td><%= news_item.description %></td>
-        <td><%= news_item.link %></td>
-        <td><%= news_item.published_at %></td>
-        <td><%= link_to 'Show', news_item %></td>
-        <td><%= link_to 'Edit', edit_news_item_path(news_item) %></td>
-        <td><%= link_to 'Destroy', news_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="row">
+    <div class="col-md-6 p-3">
+      <label for="technologyList" type="button" class="btn btn-outline-secondary disabled">テクノロジー</label>
+      <div class="list-group" id="technologyList">
+          <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
+          <a href="article.html" class="list-group-item list-group-item-action">数件</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+      </div>
+    </div>
+    <div class="col-md-6 p-3">
+      <label for="governmentList" type="button" class="btn btn-outline-secondary disabled">政治・社会</label>
+      <div class="list-group" id="governmentList">
+          <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
+          <a href="article.html" class="list-group-item list-group-item-action">数件</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+      </div>
+    </div>
+  </div>  
 
-<br>
+  <div class="row">
+    <div class="col-md-6 p-3">
+      <label for="economyList" type="button" class="btn btn-outline-secondary disabled">金融・経済</label>
+      <div class="list-group" id="economyList">
+        <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
+        <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
+        <a href="article.html" class="list-group-item list-group-item-action">数件</a>
+        <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+      </div>
+    </div>  
+    <div class="col-md-6 p-3">
+      <label for="bussinessList" type="button" class="btn btn-outline-secondary disabled">ビジネス</label>
+      <div class="list-group" id="bussinessList">
+        <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
+        <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
+        <a href="article.html" class="list-group-item list-group-item-action">数件</a>
+        <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+      </div>
+    </div>  
+  </div>
 
-<%= link_to 'New News Item', new_news_item_path %>
+  <div class="row">
+    <div class="col-md-6 p-3">
+      <label for="educationList" type="button" class="btn btn-outline-secondary disabled">教育</label>
+      <div class="list-group" id="educationList">
+          <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
+          <a href="article.html" class="list-group-item list-group-item-action">数件</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+      </div>
+    </div>
+    <div class="col-md-6 p-3">
+      <label for="entertainmentList" type="button" class="btn btn-outline-secondary disabled">エンタメ</label>
+      <div class="list-group" id="entertainmentList">
+          <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
+          <a href="article.html" class="list-group-item list-group-item-action">数件</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+      </div>
+    </div>
+  </div> 
+
+  <div class="row">
+    <div class="col-md-6 p-3">
+      <label for="sportList" type="button" class="btn btn-outline-secondary disabled">スポーツ</label>
+      <div class="list-group" id="sportList">
+          <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
+          <a href="article.html" class="list-group-item list-group-item-action">数件</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+      </div>
+    </div>
+    <div class="col-md-6 p-3">
+      <label for="internationalList" type="button" class="btn btn-outline-secondary disabled">国際</label>
+      <div class="list-group" id="internationalList">
+          <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
+          <a href="article.html" class="list-group-item list-group-item-action">数件</a>
+          <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+      </div>
+    </div>
+  </div> 
+
+</div>

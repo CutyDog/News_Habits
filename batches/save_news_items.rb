@@ -9,7 +9,7 @@ class SaveNewsItems
       rss = RSS::Parser.parse(rss_source)
       rss.items.each.with_index(1) do |item, i|
         next if NewsItem.find_by(link: item.link).present?
-        
+
         NewsItem.create!(
           news_site_id: site.id,
           title: item.title,

@@ -3,6 +3,7 @@ class CreateNewsSites < ActiveRecord::Migration[5.0]
     create_table :news_sites do |t|
       t.string :title, null: false
       t.text :rss_url, null: false
+      
 
       t.timestamps
       
