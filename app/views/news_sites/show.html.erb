@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @news_site.title %>
+</p>
+
+<p>
+  <strong>Rss url:</strong>
+  <%= @news_site.rss_url %>
+</p>
+
+<%= link_to 'Edit', edit_news_site_path(@news_site) %> |
+<%= link_to 'Back', news_sites_path %>

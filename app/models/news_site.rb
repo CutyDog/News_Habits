@@ -1,0 +1,2 @@
+class NewsSite < ApplicationRecord
+end
