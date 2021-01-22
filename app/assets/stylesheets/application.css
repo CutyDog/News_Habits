@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+body {
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+.VueCarousel{
+    height: 300px;
+  }
+  .VueCarousel-wrapper, .VueCarousel-inner, .VueCarousel-slide{
+    height: 100% !important;
+  }
+  .VueCarousel-slide .slider-inner {
+    height: 100%;
+    /*background-color: #62caaa;*/ 
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-content: flex-end;
+    border: 2px solid #62caaa;
+    /*font-size: 30px;*/ 
+    border-radius: 10px;
+}
+
+
+#footer {
+    margin-top:auto;
+    /*position: absolute;*/
+    margin-bottom: 0;
+    width: 100%;
+    /*height: 100px;*/
+}
+

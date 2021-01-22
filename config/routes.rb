@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
-  root to: 'news_items#index'
-  resources :news_items
+  
+  root to: 'home#top'
+  get "home/habit"
+  
+  resources :news_items do
+    get "news_items/show"
+  end
+  
   resources :news_sites
+  
+  resources :home do
+    get "home/habit"
+  end
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

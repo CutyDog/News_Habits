@@ -1,34 +1,64 @@
-<p id="notice"><%= notice %></p>
+<div class="card p-3">
+    <div class="card-header">
+      ジャンル：○○
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">ニュースのタイトル</h5>
+      <p class="card-text">ニュースの記事</br>ニュースの記事</br>ニュースの記事</br>ニュースの記事</br>ニュースの記事</br></p>
+      <button type="button" class="btn btn-outline-dark">既読</button>
+    </div>
+</div>
+<!---<div class="accordion" id="commentContent">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <p class="mb-0">
+                <p class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    コメント内容の冒頭数文字...
+                </p>
+            </p>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#commentContent">
+            <div class="card-body">
+                <h5><span style="border-bottom: solid 1px gray;">ユーザー名</span></h5>  
+                <p>コメント内容</p>
+            </div>
+        </div>
+    </div>    
+</div>--->
 
-<p>
-  <strong>News site:</strong>
-  <%= @news_item.news_site_id %>
-</p>
+<ul class="list-group list-group-flush p-5">
+    <li class="list-group-item disabled">コメント一覧...</li>
 
-<p>
-  <strong>Title:</strong>
-  <%= @news_item.title %>
-</p>
+    <li id="userOne" class="list-group-item" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        コメント
+    </li>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#userOne">
+        <p><span style="border-bottom: solid 1px gray;">ユーザー名</span></p></br>  
+        <p>コメント内容</p>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @news_item.description %>
-</p>
+    <li id="userTwo" class="list-group-item" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        コメント
+    </li>
+    <div id="collapseTwo" class="collapse"  data-parent="#userTwo">
+        <p><span style="border-bottom: solid 1px gray;">ユーザー名</span></p></br>  
+        <p>コメント内容</p>
+    </div>
 
-<p>
-  <strong>Link:</strong>
-  <%= @news_item.link %>
-</p>
+    <li id="userThree" class="list-group-item" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+        コメント
+    </li>
+    <div id="collapseThree" class="collapse"  data-parent="#userThree">
+        <p><span style="border-bottom: solid 1px gray;">ユーザー名</span></p></br>  
+        <p>コメント内容</p>
+    </div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @news_item.category %>
-</p>
-
-<p>
-  <strong>Published at:</strong>
-  <%= @news_item.published_at %>
-</p>
-
-<%= link_to 'Edit', edit_news_item_path(@news_item) %> |
-<%= link_to 'Back', news_items_path %>
+    <li class="list-group-item">コメントをもっと見る...</li>
+</ul> 
+<div class="row p-5">
+    <div class="input-group mb-3">
+        <input class="form-control", placeholder="コメント投稿">
+        <!---<div class="input-group-append">--->
+        <button class="btn btn-outline-secondary">送信</button>
+    </div>
+</div>
