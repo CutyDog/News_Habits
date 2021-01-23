@@ -1,7 +1,7 @@
 class CreateNewsItems < ActiveRecord::Migration[5.0]
   def change
     create_table :news_items do |t|
-      t.integer :news_site_id, null: false
+      t.integer :news_sites_id, null: false
       t.string :title, null: false
       t.string :category, null: false
       t.text :description, null: false

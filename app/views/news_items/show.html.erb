@@ -1,11 +1,15 @@
 <div class="card p-3">
     <div class="card-header">
-      ジャンル：○○
+        <h5 class="card-title" style="font-weight:bold;"><%= @news_item.title %></h5>
+        <%= @news_item.published_at %></br>
+        <%#ジャンル：<%= @news_item.category %>
     </div>
     <div class="card-body">
-      <h5 class="card-title">ニュースのタイトル</h5>
-      <p class="card-text">ニュースの記事</br>ニュースの記事</br>ニュースの記事</br>ニュースの記事</br>ニュースの記事</br></p>
-      <button type="button" class="btn btn-outline-dark">既読</button>
+      <p class="card-text"><%= @news_item.description %></p>
+      <a href="<%= @news_item.link %>" class="text-dark bg-light" target="_blank">この記事のリンク</a> 
+    </div>
+    <div class="card-footer">
+        <button type="button" class="btn btn-outline-dark">既読</button>
     </div>
 </div>
 <!---<div class="accordion" id="commentContent">
@@ -26,7 +30,7 @@
     </div>    
 </div>--->
 
-<ul class="list-group list-group-flush p-5">
+<ul class="list-group list-group-flush p-4">
     <li class="list-group-item disabled">コメント一覧...</li>
 
     <li id="userOne" class="list-group-item" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

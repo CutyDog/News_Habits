@@ -21,19 +21,21 @@
     <div class="col-md-6 p-3">
       <label for="technologyList" type="button" class="btn btn-outline-secondary disabled">テクノロジー</label>
       <div class="list-group" id="technologyList">
-        <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
-        <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
-        <a href="article.html" class="list-group-item list-group-item-action">数件</a>
-        <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+        <%# @technology_item.each do |technology| %> 
+          <%= link_to 'id=1のリンク', news_item_path(1), class: "list-group-item list-group-item-action" %>
+          <%= link_to 'id=2のリンク', news_item_path(2), class: "list-group-item list-group-item-action" %>
+          <%= link_to 'id=3のリンク', news_item_path(3), class: "list-group-item list-group-item-action" %>
+          <%= link_to 'id=4のリンク', news_item_path(4), class: "list-group-item list-group-item-action" %>
+        <%#= end %>
       </div>
     </div>
     <div class="col-md-6 p-3">
       <label for="governmentList" type="button" class="btn btn-outline-secondary disabled">政治・社会</label>
       <div class="list-group" id="governmentList">
-        <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
-        <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
-        <a href="article.html" class="list-group-item list-group-item-action">数件</a>
-        <a href="article.html" class="list-group-item list-group-item-action">ピックアップ</a>
+        <%= link_to 'link', news_items_path, class: "list-group-item list-group-item-action" %>
+        <%= link_to 'link', news_items_path, class: "list-group-item list-group-item-action" %>
+        <%= link_to 'link', news_items_path, class: "list-group-item list-group-item-action" %>
+        <%= link_to 'link', news_items_path, class: "list-group-item list-group-item-action" %>
       </div>
     </div>
   </div>  

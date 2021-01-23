@@ -1,2 +1,3 @@
 class NewsItem < ApplicationRecord
+  
 end

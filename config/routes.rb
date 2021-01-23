@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "home/habit"
   
   resources :news_items do
-    get "news_items/show"
+    resources :show
   end
   
   resources :news_sites
