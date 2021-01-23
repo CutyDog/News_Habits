@@ -66,3 +66,25 @@
         <button class="btn btn-outline-secondary">送信</button>
     </div>
 </div>
+
+
+
+
+<div class="container">
+ <% if user_signed_in? %>
+   <%= form_for(@comment, url: news_item_comments_path(@news_item)) do |f| %>
+     <div class="row p-5">
+       <div class="input-group mb-3">
+         <%= f.text_field :content, class: "form-control", placeholder: "コメント投稿" %>
+         <div class="input-group-append">
+           <%= f.submit "送信", class: "btn btn-outline-secondary" %>
+         </div>
+       </div>
+      </div>
+   <% end %>
+  <% else %>
+     <div class="row p-5">
+       <%= link_to "ログインしてコメントを投稿", new_user_session_path, class: 'btn btn-outline-secondary' %>
+     </div> 
+  <% end %>
+</div>

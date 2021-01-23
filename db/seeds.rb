@@ -9,7 +9,7 @@
 [
   {
     id: 1,
-    title: 'YahooNews IT',
+    title: 'YahooNews テクノロジー',
     rss_url: 'https://news.yahoo.co.jp/rss/categories/it.xml',
     category: 'tech'
   },
@@ -18,7 +18,7 @@
     title: 'YahooNews 経済',
     rss_url: 'https://news.yahoo.co.jp/rss/categories/business.xml',
     category: 'economy'
-  }
+  },
 ].each do |hash|
   news_site = NewsSite.find_or_initialize_by(id: hash[:id])
   news_site.title = hash[:title]

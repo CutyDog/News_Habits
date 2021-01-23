@@ -1,7 +1,9 @@
-<div class="container p-3 text-align" style="font-style: italic; font-size: large;" id="messageswitch">
-  <p v-if="toggle">Welcome, ○○！</p>
-  <p v-else=><a href="log_in.html" class="text-dark">Please log in...</a></p>
-  <button v-on:click="toggleBtn" class="btn btn-outline-secondary">切り替え</button>
+<div class="container p-3 text-align" style="font-style: italic; font-size: large;">
+  <% if user_signed_in? %>
+    <h5 class="text-dark" style="font-weight:bold;">Welcome！</p>
+  <% else %>
+    <%= link_to "Please log in...", new_user_session_path, class: 'btn btn-outline-secondary' %>
+  <% end %>
 </div>
 
 <!---<div class="container p-3" id="app">
@@ -40,28 +42,27 @@
 
   <div class="row">
     <div class="col-md-6 p-3">
-      <label for="technologyList" type="button" class="btn btn-outline-secondary disabled">テクノロジー</label>
-      <div class="list-group" id="technologyList">
+      <label for="techList" type="button" class="btn btn-outline-secondary disabled">テクノロジー</label>
+      <div class="list-group" id="techList">
         <% @tech_items.each do |item| %> 
           <%= link_to item.title, news_item_path(item), class: "list-group-item list-group-item-action" %>
         <% end %>
       </div>
     </div>
     <div class="col-md-6 p-3">
-      <label for="governmentList" type="button" class="btn btn-outline-secondary disabled">政治・社会</label>
-      <div class="list-group" id="governmentList">
-        <%= link_to 'link', news_items_path, class: "list-group-item list-group-item-action" %>
-        <%= link_to 'link', news_items_path, class: "list-group-item list-group-item-action" %>
-        <%= link_to 'link', news_items_path, class: "list-group-item list-group-item-action" %>
-        <%= link_to 'link', news_items_path, class: "list-group-item list-group-item-action" %>
+      <label for="economyList" type="button" class="btn btn-outline-secondary disabled">経済</label>
+      <div class="list-group" id="economyList">
+        <% @economy_items.each do |item| %> 
+          <%= link_to item.title, news_item_path(item), class: "list-group-item list-group-item-action" %>
+        <% end %>
       </div>
     </div>
   </div>  
 
   <div class="row">
     <div class="col-md-6 p-3">
-      <label for="economyList" type="button" class="btn btn-outline-secondary disabled">金融・経済</label>
-      <div class="list-group" id="economyList">
+      <label for="sienceList" type="button" class="btn btn-outline-secondary disabled">科学</label>
+      <div class="list-group" id="sienceList">
         <a href="article.html" class="list-group-item list-group-item-action">ジャンル内の</a>
         <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
         <a href="article.html" class="list-group-item list-group-item-action">数件</a>
