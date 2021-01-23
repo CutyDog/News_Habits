@@ -6,16 +6,16 @@ class SaveNewsItems
     sites.each do |site|
       rss = nil
       rss_source = site.rss_url
-      rss = RSS::Parser.parse(rss_source)
+      rss = RSS::Parser.parse(rss_source, validate: false)
       rss.items.each.with_index(1) do |item, i|
         next if NewsItem.find_by(link: item.link).present?
-
+        
         NewsItem.create!(
           news_site_id: site.id,
           title: item.title,
           link: item.link,
-          category: item.category,
           published_at: item.pubDate,
+          category: site.category,
           description: item.description
         )
       end
