@@ -1,20 +1,20 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.VueCarousel{
-    height: 300px;
+
+  
+.carousel-item {
+  .carousel-image {
+    filter: brightness(60%) blur(1px);
+    border: 4px solid #000000;
   }
-  .VueCarousel-wrapper, .VueCarousel-inner, .VueCarousel-slide{
-    height: 100% !important;
+}
+.carousel-item:hover {
+  .carousel-image {
+    /*filter: opacity(40%);*/
+    filter: none;
+  }  
+  h5, p {
+    font-color: #000000;
   }
-  .VueCarousel-slide .slider-inner {
-    height: 100%;
-    /*background-color: #62caaa;*/ 
-    display: flex; 
-    flex-direction: column;
-    justify-content: flex-end; 
-    align-content: flex-end;
-    border: 2px solid #62caaa;
-    /*font-size: 30px;*/ 
-    border-radius: 10px;
 }

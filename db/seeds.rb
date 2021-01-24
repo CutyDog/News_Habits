@@ -19,12 +19,6 @@
     rss_url: 'https://news.yahoo.co.jp/rss/categories/business.xml',
     category: 'economy'
   },
-  {
-    id: 3,
-    title: 'YahooNews 国際',
-    rss_url: 'https://news.yahoo.co.jp/rss/categories/world.xml',
-    category: 'international'
-  },  
 ].each do |hash|
   news_site = NewsSite.find_or_initialize_by(id: hash[:id])
   news_site.title = hash[:title]
