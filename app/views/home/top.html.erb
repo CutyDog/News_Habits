@@ -16,7 +16,7 @@
     </slide>
   </carousel>
 </div>--->
-<div class="container">
+<div class="container p-3 mb-5">
   <div class="row">
     <div id="carouselExampleFade1" class="carousel slide carousel-fade col-md-6" data-ride="carousel" data-interval="4000" >
       <div class="carousel-inner">
@@ -25,7 +25,7 @@
             <img src="<%= item.thumbnail_url %>" alt="<%= item.title %>" width="100%" height="400" style="object-fit: cover;" class="carousel-image"/>
             <div class="carousel-caption d-none d-md-block">
               <h5 style="font-weight:bold; text-white"><%= item.title %></h5></br>
-              <p style="font-weight:bold;"><%= item.description %></p>
+              <p><%= item.description %></p>
             </div>
           </a>
         <% end %>
@@ -46,7 +46,7 @@
             <img src="<%= item.thumbnail_url %>" alt="<%= item.title %>" width="100%" height="400" style="object-fit: cover;" class="carousel-image"/>
             <div class="carousel-caption d-none d-md-block">
               <h5 style="font-weight:bold; text-white"><%= item.title %></h5></br>
-              <p style="font-weight:bold;"><%= item.description %></p>
+              <p><%= item.description %></p>
             </div>
           </a>
         <% end %>
@@ -64,8 +64,12 @@
 </div>
 
 <div class="container p-3">
-
   <div class="row">
+    <div class="col-12 p-3 mb-3">
+      <h5 class="text-success" style="text-align: center; font-weight:bold;">
+        <u class="text-success">話題のトピックス</u>
+      </h5>
+    </div>    
     <div class="col-md-6 p-3">
       <label for="techList" type="button" class="btn btn-outline-secondary disabled">テクノロジー</label>
       <div class="list-group" id="techList">

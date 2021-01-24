@@ -1,7 +1,7 @@
 <div class="card p-3">
     <div class="card-header">
         <h5 class="card-title" style="font-weight:bold;"><%= @news_item.title %></h5>
-        <%= @news_item.published_at %></br>
+        <p class="mb-0">公開日：<%= @news_item.published_at %></p>
         <%#ジャンル：<%= @news_item.category %>
     </div>
     <div class="card-body">
