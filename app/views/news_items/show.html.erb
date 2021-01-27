@@ -29,8 +29,8 @@
         </div>
     </div>    
 </div>--->
-
-<ul class="list-group list-group-flush p-4">
+<!---
+<ul class="list-group list-group-flush p-5">
     <li class="list-group-item disabled">コメント一覧...</li>
 
     <li id="userOne" class="list-group-item" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -59,16 +59,18 @@
 
     <li class="list-group-item">コメントをもっと見る...</li>
 </ul> 
-<div class="row p-5">
-    <div class="input-group mb-3">
-        <input class="form-control", placeholder="コメント投稿">
-        <!---<div class="input-group-append">--->
-        <button class="btn btn-outline-secondary">送信</button>
-    </div>
-</div>
+--->
 
-
-
+<ul class="list-group list-group-flush p-3">
+    <li class="list-group-item disabled">コメント一覧...</li>
+    <% @comments.each do |comment| %>
+        <li class="list-group-item disabled">
+             <div class="ml-3"><%= comment.user.name %></div>
+             <p><%= comment.content %></p>
+        </li> 
+    <% end %>
+    <li class="list-group-item">コメントをもっと見る...</li>
+</ul>    
 
 <div class="container">
  <% if user_signed_in? %>
