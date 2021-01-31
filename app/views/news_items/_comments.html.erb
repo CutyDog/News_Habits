@@ -1,0 +1,16 @@
+<div class="container p-5">
+    <div class="card p-3">
+        <div class="card-header mb-3">コメント一覧</div>
+        <div class="card-body" id="wrapper" style="overflow-y: scroll; height:400px;">
+            <ul class="list-group list-group-flush p-3">
+                 <% comments.each do |comment| %>
+                 <li class="list-group-item disabled">
+                     <span class="text-primary"><%= comment.user.name %></span>
+                     <br></br>
+                     <%= comment.content %>
+                 </li>
+                 <% end %>
+            </ul>
+        </div>
+    </div>
+</div>
