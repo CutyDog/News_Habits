@@ -1,16 +1,10 @@
 class CommentsController < ApplicationController
   def create
-    @news_item = NewsItem.find(params[:news_item_id])
-    @comment = @news_item.comments.new(comment_params)
-    @comment.user = current_user
-
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to news_item_path(@comment.news_item), notice: 'Comment was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
+    news_item = NewsItem.find(params[:news_item_id])
+    comment = news_item.comments.new(comment_params)
+    comment.user = current_user
+    comment.save
+    @comments = news_item.comments.order(id: :desc)
   end
 
   # PATCH/PUT /comments/1

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   
   resources :news_items, only: [:show] do
     resources :comments
+    resources :read_logs, only: [:show, :create, :destroy]
     get 'search', on: :collection
+    get 'read_log', on: :collection
   end
   
   resources :news_sites

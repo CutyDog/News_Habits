@@ -11,16 +11,17 @@ class NewsItemsController < ApplicationController
   # GET /news_items/1.json
   def show
     @news_item = NewsItem.find(params[:id])
+    @read_log_news_item = @news_item.read_logs.find_by(user: current_user)
     @comment = Comment.new
     @comments = @news_item.comments.order(id: :desc)
   end
   
   def search
     @keyword = params[:keyword]
-    @news_item = if @keyword
-                    NewsItem.where('title like ?', "%#{@keyword}%")
+    @news_items = if @keyword
+                    NewsItem.where('title like ? or description like ?', "%#{@keyword}%", "%#{@keyword}%")
                   else
-                    NewsItem.all
+                    NewsItem.none
                   end
   end
 

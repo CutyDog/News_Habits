@@ -12,8 +12,16 @@
         </div>
         <div class="card-footer">
           <div class="row justify-content-md-center">
-            <button type="button" class="btn btn-outline-dark">既読</button>
-          </div>    
+              <% if @read_log_news_item %>
+                  <%= link_to news_item_read_log_path(@news_item, @read_log_news_item), method: 'delete' do %> 
+                      <button type="button" class="btn btn-outline-info"><i class="fas fa-check color-info"></i>既読</button>
+                  <% end %> 
+              <% else %> 
+                  <%= link_to news_item_read_logs_path(@news_item), method: 'post' do %>
+                      <button type="button" class="btn btn-outline-dark"><i class="fas fa-book color-dark"></i>未読</button>
+                  <% end %>    
+              <% end %>
+          </div>          
         </div>
     </div>
 </div>      

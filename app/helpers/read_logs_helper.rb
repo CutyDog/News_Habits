@@ -1,0 +1,2 @@
+module ReadLogsHelper
+end
