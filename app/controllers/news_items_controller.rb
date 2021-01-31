@@ -19,7 +19,7 @@ class NewsItemsController < ApplicationController
   def search
     @keyword = params[:keyword]
     @news_items = if @keyword
-                    NewsItem.where('title like ? or description like ?', "%#{@keyword}%", "%#{@keyword}%")
+                    NewsItem.where('title like ? or description like ?', "%#{@keyword}%", "%#{@keyword}%").page(params[:page]).per(10)
                   else
                     NewsItem.none
                   end
