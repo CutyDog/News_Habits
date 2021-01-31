@@ -1,17 +1,23 @@
 <div class="col-md-6 p-5">ユーザー名</div>
 
-<div id="habit-score" class="container">
-    <div class="card">
-        <svg class="bd-placeholder-img card-img-bottom" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 習慣グラフ">
-            <title>一ヶ月分のグラフ</title>
-            <rect width="100%" height="100%" fill="#868e96"/>
-            <text x="40%" y="50%" fill="#dee2e6" dy=".3em">習慣グラフ</text>
-        </svg>
-    </div>  
-</div>    
-<div class="row p-5">  
-    <div class="col-md-6 p-3">
-        <div class="card border-info mb-3">
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 p-3 mb-3" style="text-align: center; font-weight:bold;"><u class="text-info">習慣グラフ</u></div>
+        <div class="col-md-6 p-3">
+            <canvas id="weekChart"></canvas>
+            <script>draw_graph();</script>
+        </div>
+        <div class="col-md-6 p-3">
+            <canvas id="monthChart"></canvas>
+            <script>draw_graph();</script>
+        </div>         
+    </div>
+</div>
+
+<div class="row p-3">  
+    <div class="col-md-6 p-5">
+        <div class="card border-info p-3 mb-3">
             <div class="card-header">今週</div>
             <div class="card-body text-info">
                 <h5 class="card-title">今週の達成率</h5>
@@ -20,8 +26,8 @@
         </div>
     </div>
     
-    <div class="col-md-6 p-3">
-        <div class="card border-info mb-3">
+    <div class="col-md-6 p-5">
+        <div class="card border-info p-3 mb-3">
             <div class="card-header">平均</div>
             <div class="card-body text-info">
                 <h5 class="card-title">平均達成率</h5>
@@ -31,11 +37,11 @@
     </div>
 </div>
 
-<div id="habit-favorite" class="container">
+<div id="habit-favorite" class="container mb-5">
   <div class="row">  
     <div class="col-md-6 p-3">
-      <div class="reccomend">あなたへのおすすめ</div>  
-      <div class="list-group">
+      <label for="#reccomend"><u class="text-info">あなたへのおすすめ</u></label>  
+      <div id="recommend" class="list-group">
         <a href="article.html" class="list-group-item list-group-item-action">おすすめの</a>
         <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
         <a href="article.html" class="list-group-item list-group-item-action">数件</a>
@@ -44,7 +50,7 @@
     </div>
     
     <div class="col-md-6 p-3">
-      <div class="reccomend">閲覧履歴</div>
+      <label for="#reccomend"><u class="text-info">閲覧履歴</u></label>
       <div class="list-group">
         <a href="article.html" class="list-group-item list-group-item-action">直近読んだ</a>
         <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>

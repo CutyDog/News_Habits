@@ -10,6 +10,7 @@ class NewsItemsController < ApplicationController
   # GET /news_items/1
   # GET /news_items/1.json
   def show
+    @news_item = NewsItem.find(params[:id])
     @comment = Comment.new
     @comments = @news_item.comments.order(id: :desc)
   end

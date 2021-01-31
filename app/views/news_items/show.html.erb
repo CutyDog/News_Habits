@@ -1,11 +1,11 @@
-<div class="container p-3">  
+<div class="container p-3 mt-3">  
     <div class="card">
-        <div class="card-header">
-            <h5 class="card-title" style="font-weight:bold;"><%= @news_item.title %></h5>
-            <p class="mb-0">公開日：<%= @news_item.published_at %></p>
+        <div class="card-header bg-secondary">
+            <h5 class="card-title text-white" style="font-weight:bold;"><%= @news_item.title %></h5>
+            <p class="mb-0 text-white">公開日：<%= @news_item.published_at %></p>
             <%#ジャンル：<%= @news_item.category %>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-light">
           <p class="card-text"><%= @news_item.description %></p>
           <br></br>
           <a href="<%= @news_item.link %>" class="btn btn-outline-dark btn-lg btn-block" target="_blank">この記事のリンク</a>
@@ -73,7 +73,7 @@
             <ul class="list-group list-group-flush p-3">
                  <% @comments.each do |comment| %>
                  <li class="list-group-item disabled">
-                     <span class="text-primary"><%= comment.content %></span>
+                     <span class="text-primary"><%= comment.user.name %></span>
                      <br></br>
                      <%= comment.content %>
                  </li>
