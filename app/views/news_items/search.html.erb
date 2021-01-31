@@ -1,0 +1,5 @@
+<% @news_items.each do |news_item| %>
+  <p><%= news_item.title.gsub(/#{@keyword}/, "<b>#{@keyword}</b>").html_safe %></p>
+  <p><%= news_item.description.gsub(/#{@keyword}/, "<b>#{@keyword}</b>").html_safe %></p>
+  <p>===</p>
+<% end %>
