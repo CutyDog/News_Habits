@@ -17,10 +17,10 @@ class NewsItemsController < ApplicationController
   
   def search
     @keyword = params[:keyword]
-    @news_item = if @keyword
-                    NewsItem.where('title like ?', "%#{@keyword}%")
+    @news_items = if @keyword
+                    NewsItem.where('title like ? or description like ?', "%#{@keyword}%", "%#{@keyword}%")
                   else
-                    NewsItem.all
+                    NewsItem.none
                   end
   end
 

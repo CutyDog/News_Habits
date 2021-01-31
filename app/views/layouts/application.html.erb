@@ -19,10 +19,10 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <h5 class="text-center text-white">NEWS HABITS</h5>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <a href="search.html" class="btn btn-outline-success my-2 my-sm-0">Search</a>
-          </form>
+          <%= form_tag search_news_items_path, class: 'form-inline my-2 my-lg-0', method: 'get' do %>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
+            <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+          <% end %>
         </nav>
         <div class="collapse" id="navbarToggleExternalContent">
           <ul class="list-group bg-dark p-4 mb-3" style="width:100%; margin-left:0;">
