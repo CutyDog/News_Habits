@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20210131155448) do
+=======
+ActiveRecord::Schema.define(version: 20210123154117) do
+>>>>>>> 50a50ec7e7368c50a98462423897128d345c70c5
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -18,6 +22,7 @@ ActiveRecord::Schema.define(version: 20210131155448) do
     t.text     "content"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["news_item_id"], name: "index_comments_on_news_item_id"
   end
 
   create_table "news_items", force: :cascade do |t|
@@ -56,14 +61,15 @@ ActiveRecord::Schema.define(version: 20210131155448) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "name",                   default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.text     "description"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
