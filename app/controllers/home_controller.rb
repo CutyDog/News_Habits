@@ -19,15 +19,22 @@ class HomeController < ApplicationController
     @name = user&.name
     
     @read_reccomends = NewsItem.where.not(id: user.read_log_news_items).order(id: :desc).limit(4)
-    
     @read_logs = user.read_log_news_items.preload(:news_item).order(id: :desc).limit(4)
     
     logs = user.read_log_news_items.where('created_at >= ?', Time.current.beginning_of_day - 7.day)
-    gon.data = [0,0,0,0,0,0,0]
+    gon.week = [0,0,0,0,0,0,0]
     logs.each do |log|
-      gon.data[(Time.current.to_date - log.created_at.to_date).to_i] += 1
+      gon.week[(Time.current.to_date - log.created_at.to_date).to_i] += 1
     end  
-    gon.data = gon.data.reverse
+    gon.week = gon.week.reverse
+    
+    records = user.read_log_news_items.where('created_at >= ?', Time.current.beginning_of_day - 30.day)
+    gon.month = Array.new(30, 0)
+    records.each do |record|
+      gon.month[(Time.current.to_date - record.created_at.to_date).to_i] += 1
+    end
+    gon.month = gon.month.reverse
+    gon.label = Array.new(30, "")
     
   end
   

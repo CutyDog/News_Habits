@@ -8,7 +8,7 @@ window.draw_graph = ->
         data: {
             labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
             datasets: [{
-                data: gon.data,
+                data: gon.week,
                 backgroundColor: [
                     'rgba(255, 159, 64, 0.2)',
                     'rgba(100, 100, 100, 0.2)',
@@ -52,9 +52,9 @@ window.draw_graph = ->
     monthChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["1~5", "6~10", "11~15", "16~20", "21~25", "25~"],
+            labels: gon.label,
             datasets: [{
-                data: [12, 19, 3, 5, 2, 3],
+                data: gon.month,
                 borderColor: 'rgba(54, 162, 235, 1)',
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderWidth: 1
