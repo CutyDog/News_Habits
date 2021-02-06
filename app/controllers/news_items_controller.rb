@@ -73,6 +73,14 @@ class NewsItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def habit
+    gon.data = []
+    7.times do
+      gon.data << rand(100.0)
+    end  
+  end  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

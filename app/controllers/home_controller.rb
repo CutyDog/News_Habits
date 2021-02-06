@@ -9,9 +9,14 @@ class HomeController < ApplicationController
     @entertainment_items = NewsItem.entertainment.order(published_at: :desc).limit(4)
     @domestic_items = NewsItem.domestic.order(published_at: :desc).limit(4)
     @international_items = NewsItem.international.order(published_at: :desc).limit(4)
+    
+    user = current_user
+    @name = user.name
   end
   
   def habit
+    user = current_user
+    @name = user.name
   end
   
 end

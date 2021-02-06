@@ -1,6 +1,6 @@
 <div class="container p-3 text-align" style="font-style: italic; font-size: large;">
   <% if user_signed_in? %>
-    <h5 class="text-dark" style="font-weight:bold;">Welcome！</p>
+    <h5 class="text-dark" style="font-weight:bold;">Welcome,<%= @name %>！</p>
   <% else %>
     <%= link_to "Please log in...", new_user_session_path, class: 'btn btn-outline-secondary' %>
   <% end %>
@@ -76,7 +76,7 @@
         <u class="text-success">トピックス一覧</u>
       </h5>
     </div>    
-    <div class="col-md-6 p-3">
+    <div class="col-sm-12 col-md-6 p-3">
       <label for="itList" type="button" class="btn btn-outline-secondary disabled">IT</label>
       <div class="list-group" id="itList">
         <% @it_items.each do |item| %> 

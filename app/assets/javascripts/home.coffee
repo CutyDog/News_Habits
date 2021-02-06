@@ -8,7 +8,7 @@ window.draw_graph = ->
         data: {
             labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
             datasets: [{
-                data: [12, 19, 3, 5, 2, 3, 6],
+                data: gon.data,
                 backgroundColor: [
                     'rgba(255, 159, 64, 0.2)',
                     'rgba(100, 100, 100, 0.2)',

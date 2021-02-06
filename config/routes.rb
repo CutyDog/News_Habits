@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   resources :home do
     get "home/habit"
+    resources :habit
   end
   
   
