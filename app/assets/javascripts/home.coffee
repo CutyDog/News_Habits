@@ -78,3 +78,6 @@ window.draw_graph = ->
         }
     })    
     
+$(document).on "turbolinks:load", ->
+    if document.getElementById("weekChart")
+        draw_graph()

@@ -7,11 +7,9 @@
         <div class="col-12 p-3 mb-3" style="text-align: center; font-weight:bold;"><u class="text-info">習慣グラフ</u></div>
         <div class="col-md-6 p-3">
             <canvas id="weekChart"></canvas>
-            <script>draw_graph();</script>
         </div>
         <div class="col-md-6 p-3">
             <canvas id="monthChart"></canvas>
-            <script>draw_graph();</script>
         </div>         
     </div>
 </div>
@@ -53,10 +51,9 @@
     <div class="col-md-6 p-3">
       <label for="#reccomend"><u class="text-info">閲覧履歴</u></label>
       <div class="list-group">
-        <a href="article.html" class="list-group-item list-group-item-action">直近読んだ</a>
-        <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
-        <a href="article.html" class="list-group-item list-group-item-action">数件</a>
-        <a href="article.html" class="list-group-item list-group-item-action">表示</a>
+        <% @read_logs.each do |log| %>
+          <%= link_to log.news_item.title, news_item_path(log.news_item), class: 'list-group-item list-group-item-action' %>
+        <% end %>
       </div>
     </div>
   </div>
