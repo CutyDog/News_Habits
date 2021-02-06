@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20210131155448) do
-=======
-ActiveRecord::Schema.define(version: 20210123154117) do
->>>>>>> 50a50ec7e7368c50a98462423897128d345c70c5
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,14 +46,14 @@ ActiveRecord::Schema.define(version: 20210123154117) do
     t.index ["rss_url"], name: "index_news_sites_on_rss_url", unique: true
   end
 
-  create_table "read_logs", force: :cascade do |t|
+  create_table "read_log_news_items", force: :cascade do |t|
     t.integer  "user_id",      null: false
     t.integer  "news_item_id", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["created_at"], name: "index_read_logs_on_created_at"
-    t.index ["news_item_id"], name: "index_read_logs_on_news_item_id"
-    t.index ["user_id"], name: "index_read_logs_on_user_id"
+    t.index ["created_at"], name: "index_read_log_news_items_on_created_at"
+    t.index ["news_item_id"], name: "index_read_log_news_items_on_news_item_id"
+    t.index ["user_id"], name: "index_read_log_news_items_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

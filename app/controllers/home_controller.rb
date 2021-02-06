@@ -11,7 +11,7 @@ class HomeController < ApplicationController
     @international_items = NewsItem.international.order(published_at: :desc).limit(4)
     
     user = current_user
-    @name = user.name
+    @name = user&.name
   end
   
   def habit
