@@ -1,4 +1,4 @@
-class CreateReadLogs < ActiveRecord::Migration[5.0]
+class CreateReadLogsNewsItems < ActiveRecord::Migration[5.0]
   def change
     create_table :read_log_news_items do |t|
       t.integer :user_id, null: false
