@@ -47,3 +47,11 @@ body {
     /*height: 100px;*/
 }
 
+.card-body {
+  background-image: image-url("%= item.thumbnail_url %>");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 100% contain;
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:lighten;  
+}
