@@ -1,4 +1,6 @@
-<div class="col-md-6 p-5"><span style="font-weight:bold;"><%= @name %></span>'s page</div>
+<div class="col-md-6 p-5" style="font-family:'Caveat',cursive; font-size: large;">
+    <h3 style="font-weight:bold;"><%= @name %> 's page</h3>
+</div>
 
 
 
@@ -14,6 +16,7 @@
     </div>
 </div>
 
+<!---
 <div class="row p-3">  
     <div class="col-md-6 p-5">
         <div class="card border-info p-3 mb-3">
@@ -35,22 +38,22 @@
         </div>
     </div>
 </div>
+--->
 
 <div id="habit-favorite" class="container mb-5">
   <div class="row">  
     <div class="col-md-6 p-3">
       <label for="#reccomend"><u class="text-info">あなたへのおすすめ</u></label>  
       <div id="recommend" class="list-group">
-        <a href="article.html" class="list-group-item list-group-item-action">おすすめの</a>
-        <a href="article.html" class="list-group-item list-group-item-action">ニュースを</a>
-        <a href="article.html" class="list-group-item list-group-item-action">数件</a>
-        <a href="article.html" class="list-group-item list-group-item-action">表示</a>
+        <% @read_reccomends.each do |reccomend| %>
+          <%= link_to reccomend.title, news_item_path(reccomend), class: 'list-group-item list-group-item-action' %>
+        <% end %>
       </div>
     </div>
     
     <div class="col-md-6 p-3">
-      <label for="#reccomend"><u class="text-info">閲覧履歴</u></label>
-      <div class="list-group">
+      <label for="#log"><u class="text-info">閲覧履歴</u></label>
+      <div id="log" class="list-group">
         <% @read_logs.each do |log| %>
           <%= link_to log.news_item.title, news_item_path(log.news_item), class: 'list-group-item list-group-item-action' %>
         <% end %>

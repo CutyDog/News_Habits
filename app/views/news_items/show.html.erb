@@ -3,7 +3,7 @@
         <div class="card-header bg-secondary">
             <h5 class="card-title text-white" style="font-weight:bold;"><%= @news_item.title %></h5>
             <p class="mb-0 text-white">公開日：<%= @news_item.published_at %></p>
-            <%#ジャンル：<%= @news_item.category %>
+            <p class="mb-0 text-white">ジャンル：<%= @news_item.category %></p>
         </div>
         <div class="card-body bg-light">
           <p class="card-text"><%= @news_item.description %></p>

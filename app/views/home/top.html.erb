@@ -1,6 +1,6 @@
-<div class="container p-3 text-align" style="font-style: italic; font-size: large;">
+<div class="container p-3 text-align" style="font-family:'Caveat',cursive; font-size: large;">
   <% if user_signed_in? %>
-    <h5 class="text-dark" style="font-weight:bold;">Welcome,<%= @name %>！</p>
+    <h3 class="p-3" style="font-weight:bold;">Welcome, <%= @name %>!</h3>
   <% else %>
     <%= link_to "Please log in...", new_user_session_path, class: 'btn btn-outline-secondary' %>
   <% end %>

@@ -16,7 +16,9 @@ class HomeController < ApplicationController
   
   def habit
     user = current_user
-    @name = user.name
+    @name = user&.name
+    
+    @read_reccomends = NewsItem.where.not(id: user.read_log_news_items).order(id: :desc).limit(4)
     
     @read_logs = user.read_log_news_items.preload(:news_item).order(id: :desc).limit(4)
     
