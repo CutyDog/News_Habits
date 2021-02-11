@@ -1,24 +1,29 @@
-# README
+# NEWS HABITS APPLICATION
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このアプリケーションに含まれる機能:  
+  
+* ニュースのrssをスクレイピング
 
-Things you may want to cover:
+* ニュース記事をキーワードで検索
 
-* Ruby version
+* 各ニュースにコメントを投稿、閲覧
 
-* System dependencies
+* ユーザーのニュース閲覧状況をグラフで表示
 
-* Configuration
+使用言語:
 
-* Database creation
+* Ruby
 
-* Database initialization
+* HTML
 
-* How to run the test suite
+* CSS
 
-* Services (job queues, cache servers, search engines, etc.)
+* Javascript
 
-* Deployment instructions
+開発環境:
 
-* ...
+* AWS/Rails
+
+データベース:
+
+* MySQL
