@@ -34,7 +34,9 @@ class HomeController < ApplicationController
       gon.month[(Time.current.to_date - record.created_at.to_date).to_i] += 1
     end
     gon.month = gon.month.reverse
-    gon.label = Array.new(30, "")
+    gon.label = Array.new(28, "")
+    gon.label = gon.label.unshift("30日前")
+    gon.label = gon.label.push("今日")
     
   end
   
