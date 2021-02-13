@@ -109,6 +109,7 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pg (1.2.3)
     puma (3.12.6)
     rack (2.2.3)
     rack-test (0.6.3)
@@ -203,6 +204,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (~> 3.0.5)
+  pg
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)
   sass-rails (~> 5.0)
