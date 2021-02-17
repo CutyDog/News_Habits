@@ -1,4 +1,5 @@
 # NEWS HABITS APPLICATION
+https://news-habits.herokuapp.com/
 
 このアプリケーションに含まれる機能:  
   
