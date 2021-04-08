@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20210131155448) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "news_item_id"
     t.text     "content"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["news_item_id"], name: "index_comments_on_news_item_id"
+    t.index ["news_item_id"], name: "index_comments_on_news_item_id", using: :btree
   end
 
   create_table "news_items", force: :cascade do |t|
@@ -31,10 +34,10 @@ ActiveRecord::Schema.define(version: 20210131155448) do
     t.datetime "published_at",  null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["category"], name: "index_news_items_on_category"
-    t.index ["link"], name: "index_news_items_on_link", unique: true
-    t.index ["news_site_id"], name: "index_news_items_on_news_site_id"
-    t.index ["published_at"], name: "index_news_items_on_published_at"
+    t.index ["category"], name: "index_news_items_on_category", using: :btree
+    t.index ["link"], name: "index_news_items_on_link", unique: true, using: :btree
+    t.index ["news_site_id"], name: "index_news_items_on_news_site_id", using: :btree
+    t.index ["published_at"], name: "index_news_items_on_published_at", using: :btree
   end
 
   create_table "news_sites", force: :cascade do |t|
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 20210131155448) do
     t.string   "category",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rss_url"], name: "index_news_sites_on_rss_url", unique: true
+    t.index ["rss_url"], name: "index_news_sites_on_rss_url", unique: true, using: :btree
   end
 
   create_table "read_log_news_items", force: :cascade do |t|
@@ -51,9 +54,9 @@ ActiveRecord::Schema.define(version: 20210131155448) do
     t.integer  "news_item_id", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["created_at"], name: "index_read_log_news_items_on_created_at"
-    t.index ["news_item_id"], name: "index_read_log_news_items_on_news_item_id"
-    t.index ["user_id"], name: "index_read_log_news_items_on_user_id"
+    t.index ["created_at"], name: "index_read_log_news_items_on_created_at", using: :btree
+    t.index ["news_item_id"], name: "index_read_log_news_items_on_news_item_id", using: :btree
+    t.index ["user_id"], name: "index_read_log_news_items_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,8 +69,8 @@ ActiveRecord::Schema.define(version: 20210131155448) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end
