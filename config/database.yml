@@ -1,10 +1,15 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  host: db
-  username: postgres
-  password: password
-  pool: 5
+  adapter: mysql2
+  encoding: utf8
+  database: myapp_development
+  # host: db
+  # PasswordとUsernameはdocker-compose.ymlと合わせます
+  username: root
+  password:
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # pool: 5
+  socket: /var/run/mysqld/mysqld.sock
+  
 
 development:
   <<: *default
@@ -14,3 +19,9 @@ development:
 test:
   <<: *default
   database: myapp_test
+  
+production:
+  <<: *default
+  database: myapp_production
+  username: myapp
+  password: 

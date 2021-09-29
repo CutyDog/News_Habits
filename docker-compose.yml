@@ -1,17 +1,51 @@
-version: "3.9"
+version: "3"
 services:
-  db:
-    image: postgres
-    volumes:
-      - ./tmp/db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: password
-  web:
-    build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    volumes:
+  app:
+    build:
+      context: .
+    command: bundle exec puma -C config/puma.rb
+    
+    volumes: 
       - .:/myapp
-    ports:
-      - "3000:3000"
+      - public_data:/myapp/public
+      - tmp-data:/myapp/tmp
+      - log-data:/myapp/log
+    networks:
+      - myapp-network
     depends_on:
       - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: myapp_development
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - myapp-network
+  
+  web:
+    build:
+      context: ./nginx_docker
+    volumes:
+      - public-data:/myapp/public
+    ports:
+      - 80:80
+    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    depends_on:
+      - app
+    networks:
+      - myapp-network
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
+
+networks:
+  myapp-network:
+    external: true
